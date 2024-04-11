@@ -1,19 +1,26 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
+using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
+[RequireComponent(typeof(Text))]
 public class Licence : MonoBehaviour
 {
-    public static int points = 0;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public static UnityEvent<object> OnValueChange = new UnityEvent<object>();
 
-    // Update is called once per frame
-    void Update()
+    public static int points = 0;
+
+    private Text displayText;
+
+    private void Awake()
     {
-        
+        displayText = GetComponent<Text>();
+
+    }
+    private void OnLevelWasLoaded(int level)
+    {
+        displayText.text = "Points: " + points.ToString();
     }
 }

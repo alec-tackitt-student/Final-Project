@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class ParkingSpot : MonoBehaviour
 {
@@ -20,6 +21,11 @@ public class ParkingSpot : MonoBehaviour
     {
         Debug.Log("completed Level! , earned points");
         Licence.points += 1;
-
+        Debug.Log(Licence.points);
+        Invoke("HomeScreen", 2);
+    }
+    private void HomeScreen()
+    {
+        SceneManager.LoadScene("Home Screeen");
     }
 }
