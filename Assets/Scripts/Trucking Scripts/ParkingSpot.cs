@@ -17,11 +17,10 @@ public class ParkingSpot : MonoBehaviour
     {
         
     }
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter()
     {
         Debug.Log("completed Level! , earned points");
         Licence.points += 1;
-        Debug.Log(Licence.points);
         Invoke("HomeScreen", 2);
     }
     private void HomeScreen()
